@@ -14,9 +14,9 @@ export function Hero() {
         <div className="text-center">
           <div className="flex justify-center mb-8">
             <img 
-              src="./assets/neumark.jpeg" 
+              src="./assets/neumark.png" 
               alt="NEUMAK Logo" 
-              className="h-32 w-auto"
+              className="h-64 w-auto"
             />
           </div>
           <p className="mt-4 text-xl md:text-2xl text-gray-300">
@@ -26,7 +26,7 @@ export function Hero() {
             <a href="./assets/Catalogo_Maestranza_Axioma_2024.pdf" className="bg-[#FF3A3A] hover:bg-red-700 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-colors">
               Catálogo Maestranza y Repuestos Especiales <ChevronRight size={20} />
             </a>
-            <a href="./assets/Catalogo_taxibuses_Axioma_2024.pdf" className="bg-[#3A8EFF] hover:bg-blue-600 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-colors">
+            <a href="./assets/catalogo_taxibuses_2025-1.pdf" className="bg-[#3A8EFF] hover:bg-blue-600 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-colors">
               Catálogo Repuestos de Taxibuses <ChevronRight size={20} />
             </a>
           </div>

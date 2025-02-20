@@ -59,7 +59,7 @@ export function ContactForm() {
                 <Phone className="w-6 h-6 text-red-500" />
                 <div>
                   <h3 className="font-semibold">Teléfono</h3>
-                  <p className="text-gray-600">+1 234 567 890</p>
+                  <p className="text-gray-600">+56 9 3413 8052</p>
                 </div>
               </div>
               
@@ -67,15 +67,24 @@ export function ContactForm() {
                 <Mail className="w-6 h-6 text-red-500" />
                 <div>
                   <h3 className="font-semibold">Email</h3>
-                  <p className="text-gray-600">contacto@neumakrepuestos.com</p>
+                  <p className="text-gray-600">ventas@neumakrepuestos.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <Mail className="w-6 h-6 text-red-500" />
+                <div>
+                  <h3 className="font-semibold">Rut Empresa:</h3>
+                  <p className="text-gray-600">76.355.171-1</p>
                 </div>
               </div>
               
               <div className="flex items-center gap-4">
                 <MapPin className="w-6 h-6 text-red-500" />
                 <div>
-                  <h3 className="font-semibold">Dirección</h3>
-                  <p className="text-gray-600">Av. Principal 123, Ciudad</p>
+                  <h3 className="font-semibold">Direcciones</h3>
+                  <p className="text-gray-600">Jorge Montt 2325, Concepción</p>
+                  <p className="text-gray-600">Briceño 2274, Concepción</p>
                 </div>
               </div>
             </div>
