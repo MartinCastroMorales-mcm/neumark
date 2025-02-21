@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Send, Phone, Mail, MapPin } from 'lucide-react';
 import type { LeadForm } from '../types';
+// @ts-ignore: Ignore type checking
+import {showErrorAlert, showSuccessAlert } from '../sweetAlert';
 
 export function ContactForm() {
   const [formData, setFormData] = useState<LeadForm>({
@@ -24,6 +26,7 @@ export function ContactForm() {
     formDataToSend.append('interes', formData.interes);
     formDataToSend.append('mensaje', formData.mensaje);
     
+    console.log("fetch")
     fetch(formUrl, {
       method: 'POST',
       headers: {
@@ -33,7 +36,7 @@ export function ContactForm() {
     })
     .then(response => {
       if (response.ok) {
-        alert('Mensaje enviado correctamente');
+        showSuccessAlert('¡Enviado!','Su mensaje  ha sido enviado correctamente.');
         setFormData({
           nombre: '',
           correo: '',
@@ -42,12 +45,13 @@ export function ContactForm() {
           mensaje: ''
         });
       } else {
-        alert('Error al enviar el mensaje. Por favor, intente nuevamente.');
+        showErrorAlert('Cancelado', 'Error al procesar el mensaje.');
       }
     })
     .catch(error => {
       console.error('Error:', error);
-      alert('Error al enviar el mensaje. Por favor, intente nuevamente.');
+      console.log("Error" + error);
+      showErrorAlert('Cancelado', 'Error al enviar el mensaje.');
     });
   };
 
@@ -74,28 +78,15 @@ export function ContactForm() {
                 <Mail className="w-6 h-6 text-red-500" />
                 <div>
                   <h3 className="font-semibold">Email</h3>
-<<<<<<< Updated upstream
-                  <p className="text-gray-600">ventas@neumakrepuestos.com</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <Mail className="w-6 h-6 text-red-500" />
-                <div>
-                  <h3 className="font-semibold">Rut Empresa:</h3>
-                  <p className="text-gray-600">76.355.171-1</p>
-=======
                   <p className="text-gray-600">ventas@neumarkrepuestos.cl</p>
->>>>>>> Stashed changes
                 </div>
               </div>
               
               <div className="flex items-center gap-4">
                 <MapPin className="w-6 h-6 text-red-500" />
                 <div>
-                  <h3 className="font-semibold">Direcciones</h3>
-                  <p className="text-gray-600">Jorge Montt 2325, Concepción</p>
-                  <p className="text-gray-600">Briceño 2274, Concepción</p>
+                  <h3 className="font-semibold">Dirección</h3>
+                  <p className="text-gray-600">Av. Principal 123, Ciudad</p>
                 </div>
               </div>
             </div>
