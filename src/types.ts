@@ -9,9 +9,9 @@ export interface Product {
 }
 
 export interface LeadForm {
-  name: string;
-  email: string;
-  phone: string;
-  interest: 'brakes' | 'tires' | 'clutches' | 'general';
-  message: string;
+  nombre: string;
+  correo: string;
+  telefono: string;
+  interes: 'brakes' | 'tires' | 'clutches' | 'general';
+  mensaje: string;
 }

@@ -4,35 +4,42 @@ import type { LeadForm } from '../types';
 
 export function ContactForm() {
   const [formData, setFormData] = useState<LeadForm>({
-    name: '',
-    email: '',
-    phone: '',
-    interest: 'general',
-    message: ''
+    nombre: '',
+    correo: '',
+    telefono: '',
+    interes: 'general',
+    mensaje: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
     // Enviar el formulario a un servicio de formularios estático
-    const formUrl = 'https://formspree.io/f/your-form-id'; // Reemplazar con tu ID de Formspree
+    const formUrl = 'http://localhost:8000/index.php';
+
+    const formDataToSend = new FormData();
+    formDataToSend.append('nombre', formData.nombre);
+    formDataToSend.append('correo', formData.correo);
+    formDataToSend.append('telefono', formData.telefono);
+    formDataToSend.append('interes', formData.interes);
+    formDataToSend.append('mensaje', formData.mensaje);
     
     fetch(formUrl, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        //'Content-Type': 'application/json'
       },
-      body: JSON.stringify(formData)
+      body: formDataToSend//JSON.stringify(formData)
     })
     .then(response => {
       if (response.ok) {
         alert('Mensaje enviado correctamente');
         setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          interest: 'general',
-          message: ''
+          nombre: '',
+          correo: '',
+          telefono: '',
+          interes: 'general',
+          mensaje: ''
         });
       } else {
         alert('Error al enviar el mensaje. Por favor, intente nuevamente.');
@@ -67,6 +74,7 @@ export function ContactForm() {
                 <Mail className="w-6 h-6 text-red-500" />
                 <div>
                   <h3 className="font-semibold">Email</h3>
+<<<<<<< Updated upstream
                   <p className="text-gray-600">ventas@neumakrepuestos.com</p>
                 </div>
               </div>
@@ -76,6 +84,9 @@ export function ContactForm() {
                 <div>
                   <h3 className="font-semibold">Rut Empresa:</h3>
                   <p className="text-gray-600">76.355.171-1</p>
+=======
+                  <p className="text-gray-600">ventas@neumarkrepuestos.cl</p>
+>>>>>>> Stashed changes
                 </div>
               </div>
               
@@ -101,8 +112,8 @@ export function ContactForm() {
                   id="name"
                   required
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  value={formData.nombre}
+                  onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
                 />
               </div>
 
@@ -115,8 +126,8 @@ export function ContactForm() {
                   id="email"
                   required
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  value={formData.correo}
+                  onChange={(e) => setFormData({ ...formData, correo: e.target.value })}
                 />
               </div>
 
@@ -129,8 +140,8 @@ export function ContactForm() {
                   id="phone"
                   required
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  value={formData.telefono}
+                  onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
                 />
               </div>
 
@@ -141,8 +152,8 @@ export function ContactForm() {
                 <select
                   id="interest"
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-                  value={formData.interest}
-                  onChange={(e) => setFormData({ ...formData, interest: e.target.value as LeadForm['interest'] })}
+                  value={formData.interes}
+                  onChange={(e) => setFormData({ ...formData, interes: e.target.value as LeadForm['interes'] })}
                 >
                   <option value="general">Información General</option>
                   <option value="brakes">Frenos</option>
@@ -159,8 +170,8 @@ export function ContactForm() {
                   id="message"
                   rows={4}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  value={formData.mensaje}
+                  onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
                 />
               </div>
 
