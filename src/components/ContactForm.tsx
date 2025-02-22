@@ -17,7 +17,8 @@ export function ContactForm() {
     e.preventDefault();
     
     // Enviar el formulario a un servicio de formularios estático
-    const formUrl = 'http://localhost:8000/index.php';
+    const formUrl = 'https:///www.neumakrepuestos.cl/index.php';
+    //const formUrl = 'http:///localhost:3000/index.php';
 
     const formDataToSend = new FormData();
     formDataToSend.append('nombre', formData.nombre);
@@ -81,12 +82,22 @@ export function ContactForm() {
                   <p className="text-gray-600">ventas@neumarkrepuestos.cl</p>
                 </div>
               </div>
+              <div className="flex items-center gap-4">
+                <Mail className="w-6 h-6 text-red-500" />
+                <div>
+                  <h3 className="font-semibold">Rut Empresa</h3>
+                  <p className="text-gray-600">Rut 76.355.171-1</p>
+                </div>
+              </div>
               
               <div className="flex items-center gap-4">
                 <MapPin className="w-6 h-6 text-red-500" />
                 <div>
                   <h3 className="font-semibold">Dirección</h3>
-                  <p className="text-gray-600">Av. Principal 123, Ciudad</p>
+                  <p className="text-gray-600">
+                  Jorge Montt 2325, Concepción
+</p>
+ 
                 </div>
               </div>
             </div>
