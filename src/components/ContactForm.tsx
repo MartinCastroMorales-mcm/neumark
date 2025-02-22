@@ -96,6 +96,7 @@ export function ContactForm() {
                   <h3 className="font-semibold">Dirección</h3>
                   <p className="text-gray-600">
                   Jorge Montt 2325, Concepción
+                  Briceño 2274, Concepción
 </p>
  
                 </div>
