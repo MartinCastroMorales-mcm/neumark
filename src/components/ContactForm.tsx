@@ -79,7 +79,7 @@ export function ContactForm() {
                 <Mail className="w-6 h-6 text-red-500" />
                 <div>
                   <h3 className="font-semibold">Email</h3>
-                  <p className="text-gray-600">ventas@neumarkrepuestos.cl</p>
+                  <p className="text-gray-600">ventas@neumakrepuestos.cl</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
