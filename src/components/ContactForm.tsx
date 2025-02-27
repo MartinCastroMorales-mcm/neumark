@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Send, Phone, Mail, MapPin } from 'lucide-react';
+import { Send, Phone, Mail, MapPin, Globe, Instagram, MessageCircle } from 'lucide-react';
 import type { LeadForm } from '../types';
 // @ts-ignore: Ignore type checking
-import {showErrorAlert, showSuccessAlert } from '../sweetAlert';
+import { showErrorAlert, showSuccessAlert } from '../sweetAlert';
+import SocialIcons from './SocialIcons';
 
 export function ContactForm() {
   const [formData, setFormData] = useState<LeadForm>({
@@ -15,7 +16,7 @@ export function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Enviar el formulario a un servicio de formularios estático
     const formUrl = 'https:///www.neumakrepuestos.cl/index.php';
     //const formUrl = 'http:///localhost:3000/index.php';
@@ -26,7 +27,7 @@ export function ContactForm() {
     formDataToSend.append('telefono', formData.telefono);
     formDataToSend.append('interes', formData.interes);
     formDataToSend.append('mensaje', formData.mensaje);
-    
+
     console.log("fetch")
     fetch(formUrl, {
       method: 'POST',
@@ -35,25 +36,25 @@ export function ContactForm() {
       },
       body: formDataToSend//JSON.stringify(formData)
     })
-    .then(response => {
-      if (response.ok) {
-        showSuccessAlert('¡Enviado!','Su mensaje  ha sido enviado correctamente.');
-        setFormData({
-          nombre: '',
-          correo: '',
-          telefono: '',
-          interes: 'general',
-          mensaje: ''
-        });
-      } else {
-        showErrorAlert('Cancelado', 'Error al procesar el mensaje.');
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      console.log("Error" + error);
-      showErrorAlert('Cancelado', 'Error al enviar el mensaje.');
-    });
+      .then(response => {
+        if (response.ok) {
+          showSuccessAlert('¡Enviado!', 'Su mensaje  ha sido enviado correctamente.');
+          setFormData({
+            nombre: '',
+            correo: '',
+            telefono: '',
+            interes: 'general',
+            mensaje: ''
+          });
+        } else {
+          showErrorAlert('Cancelado', 'Error al procesar el mensaje.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        console.log("Error" + error);
+        showErrorAlert('Cancelado', 'Error al enviar el mensaje.');
+      });
   };
 
   return (
@@ -65,7 +66,7 @@ export function ContactForm() {
             <p className="mt-4 text-lg text-gray-600">
               Estamos aquí para ayudarte. Completa el formulario y nos pondremos en contacto contigo lo antes posible.
             </p>
-            
+
             <div className="mt-8 space-y-6">
               <div className="flex items-center gap-4">
                 <Phone className="w-6 h-6 text-red-500" />
@@ -74,7 +75,7 @@ export function ContactForm() {
                   <p className="text-gray-600">+56 9 3413 8052</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-4">
                 <Mail className="w-6 h-6 text-red-500" />
                 <div>
@@ -89,16 +90,24 @@ export function ContactForm() {
                   <p className="text-gray-600">Rut 76.355.171-1</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-4">
                 <MapPin className="w-6 h-6 text-red-500" />
                 <div>
                   <h3 className="font-semibold">Dirección</h3>
                   <p className="text-gray-600">
-                  Jorge Montt 2325, Concepción
-                  Briceño 2274, Concepción
-</p>
- 
+                    Jorge Montt 2325, Concepción <br />
+                    Briceño 2274, Concepción
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="flex flex-col items-center gap-4">
+                  <div className="flex items-center gap-4">
+                    <Globe className="w-6 h-6 text-red-500" />
+                    <h3 className="font-semibold">Síguenos en redes sociales</h3>
+                  </div>
+                  <SocialIcons className="flex justify-center" />
                 </div>
               </div>
             </div>

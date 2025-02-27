@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Car, Disc, CircleDot, Wrench, Bus } from 'lucide-react';
 import type { Product } from '../types';
+import Welcome from './Welcome';
 
 const products: Product[] = [
   {

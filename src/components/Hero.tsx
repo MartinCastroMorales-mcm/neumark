@@ -1,5 +1,8 @@
 import React from 'react';
 import { ChevronRight, Shield, PenTool as Tool, Timer } from 'lucide-react';
+import Welcome from './Welcome';
+import WelcomeSingleCol from './WelcomeSingleCol';
+import SocialIcons from './SocialIcons';
 
 export function Hero() {
   return (
@@ -19,11 +22,9 @@ export function Hero() {
               className="h-64 w-auto"
             />
           </div>
-          <p className="mt-4 text-xl md:text-2xl text-gray-300">
-            Expertos en repuestos y maestranza de alta calidad
-          </p>
+          <WelcomeSingleCol/>
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-            <a href="./assets/Catalogo_Maestranza_Axioma_2024.pdf" className="bg-[#FF3A3A] hover:bg-red-700 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-colors">
+            <a href="./assets/catalogo_maestranza_2025.pdf" className="bg-[#FF3A3A] hover:bg-red-700 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-colors">
               Catálogo Maestranza y Repuestos Especiales <ChevronRight size={20} />
             </a>
             <a href="./assets/catalogo_taxibuses_2025-1.pdf" className="bg-[#3A8EFF] hover:bg-blue-600 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-colors">
